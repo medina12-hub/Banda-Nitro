@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Banda Nitro | Rock Autoral e Energia Pura</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        rockblack: '#0a0a0a',
+                        cardblack: '#121212',
+                        darkred: '#8b0000',
+                        brightred: '#ff1e1e',
+                        gold: '#d4af37',
+                        lightgold: '#f3e5ab'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        rock: ['Cinzel', 'serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;900&family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: #0a0a0a;
+            color: #f3f4f6;
+            font-family: 'Inter', sans-serif;
+        }
+        .hero-glow {
+            background: radial-gradient(circle at center, rgba(139, 0, 0, 0.35) 0%, rgba(10, 10, 10, 0.95) 70%);
+        }
+        .gold-gradient-text {
+            background: linear-gradient(135deg, #d4af37 0%, #fff 50%, #d4af37 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .red-gold-border {
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            transition: all 0.3s ease;
+        }
+        .red-gold-border:hover {
+            border-color: #ff1e1e;
+            box-shadow: 0 0 20px rgba(255, 30, 30, 0.3), inset 0 0 15px rgba(212, 175, 55, 0.1);
+        }
+        .custom-shadow {
+            box-shadow: 0 10px 30px rgba(0,0,0,0.8);
+        }
+    </style>
+</head>
+<body class="bg-rockblack text-gray-100 selection:bg-brightred selection:text-white">
+
+    <!-- Notification Toast (Custom alert alternative) -->
+    <div id="toast" class="fixed bottom-5 right-5 z-50 transform translate-y-32 opacity-0 transition-all duration-300 bg-cardblack border border-gold text-lightgold px-6 py-3 rounded-xl shadow-2xl flex items-center gap-3">
+        <i class="fa-solid fa-guitar text-brightred text-xl"></i>
+        <span id="toast-message" class="font-semibold text-sm">Mensagem enviada com sucesso!</span>
+    </div>
+
+    <!-- Navigation Header -->
+    <header class="fixed top-0 left-0 w-full z-40 bg-rockblack/90 backdrop-blur-md border-b border-gold/20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <a href="#" class="text-3xl font-black font-rock tracking-wider gold-gradient-text flex items-center gap-2">
+                <i class="fa-solid fa-bolt text-brightred"></i> NITRO
+            </a>
+            <!-- Desktop Nav -->
+            <nav class="hidden md:flex items-center gap-8 font-semibold text-sm tracking-wider">
+                <a href="#home" class="hover:text-gold transition-colors">INÍCIO</a>
+                <a href="#banda" class="hover:text-gold transition-colors">A BANDA</a>
+                <a href="#inspiracoes" class="hover:text-gold transition-colors">inspirações</a>
+                <a href="#contato" class="hover:text-gold transition-colors">CONTATO & REDES</a>
+            </nav>
+            <!-- Mobile Menu Button -->
+            <button id="menu-btn" class="md:hidden text-gold text-2xl focus:outline-none">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+        <!-- Mobile Dropdown Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-cardblack border-b border-gold/20 px-6 py-4 flex flex-col gap-4">
+            <a href="#home" class="mobile-link text-sm font-semibold hover:text-gold">INÍCIO</a>
+            <a href="#banda" class="mobile-link text-sm font-semibold hover:text-gold">A BANDA</a>
+            <a href="#inspiracoes" class="mobile-link text-sm font-semibold hover:text-gold">inspirações</a>
+            <a href="#contato" class="mobile-link text-sm font-semibold hover:text-gold">CONTATO & REDES</a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden hero-glow">
+        <!-- Background decorative elements -->
+        <div class="absolute inset-0 opacity-15 pointer-events-none bg-[radial-gradient(#d4af37_1px,transparent_1px)] [background-size:24px_24px]"></div>
+        
+        <div class="relative z-10 max-w-5xl mx-auto px-4 text-center py-20">
+            <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-darkred/30 border border-gold/40 text-gold text-xs sm:text-sm font-bold uppercase tracking-widest mb-6 shadow-lg">
+                <i class="fa-solid fa-fire text-brightred animate-pulse"></i> Rock Autoral & Energia Pura
+            </div>
+            <h1 class="text-6xl sm:text-8xl lg:text-9xl font-black font-rock tracking-tighter mb-6 uppercase text-white drop-shadow-[0_10px_20px_rgba(139,0,0,0.8)]">
+                N I T R O
+            </h1>
+            <p class="text-lg sm:text-2xl text-gray-300 max-w-3xl mx-auto mb-10 font-light leading-relaxed">
+                Riffs incandescentes, melodias marcantes e a verdadeira essência do rock'n roll queimando no palco. Sinta a explosão sonora.
+            </p>
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <a href="#banda" class="w-full sm:w-auto px-8 py-4 bg-gradient-to-r from-darkred to-brightred text-white font-bold rounded-xl shadow-xl hover:brightness-110 transition-all transform hover:-translate-y-1 flex items-center justify-center gap-3 border border-red-500/40">
+                    <i class="fa-solid fa-users"></i> Conheça a Banda
+                </a>
+                <a href="#contato" class="w-full sm:w-auto px-8 py-4 bg-cardblack text-gold border-2 border-gold/60 font-bold rounded-xl shadow-xl hover:bg-gold hover:text-rockblack transition-all transform hover:-translate-y-1 flex items-center justify-center gap-3">
+                    <i class="fa-brands fa-instagram"></i> Nossas Redes
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Band Members Section -->
+    <section id="banda" class="py-24 bg-[#0d0d0d] border-t border-b border-gold/10 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <span class="text-gold uppercase tracking-widest text-sm font-bold block mb-2">Formação Oficial</span>
+                <h2 class="text-4xl sm:text-5xl font-black font-rock uppercase text-white">A BANDA</h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-darkred via-gold to-brightred mx-auto mt-4 rounded-full"></div>
+            </div>
+
+            <!-- Grid of 4 Members -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Member 1: Arthur Pinto -->
+                <div class="cardblack red-gold-border rounded-2xl p-6 text-center group bg-cardblack custom-shadow flex flex-col justify-between">
+                    <div>
+                        <div class="w-28 h-28 mx-auto mb-6 rounded-full bg-gradient-to-tr from-darkred via-gold to-brightred p-1 shadow-xl">
+                            <div class="w-full h-full bg-black rounded-full flex items-center justify-center overflow-hidden">
+                                <img src="https://placehold.co/200x200/121212/d4af37?text=AP" alt="Arthur Pinto" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" onerror="this.src='https://placehold.co/200x200/121212/d4af37?text=NITRO'">
+                            </div>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-1">Arthur Pinto</h3>
+                        <p class="text-gold text-sm font-semibold uppercase tracking-wider mb-4">Guitarrista e Vocalista</p>
+                        <p class="text-gray-400 text-sm leading-relaxed mb-6">
+                            Liderando os vocais com potência e rasgando na guitarra com solos cortantes e cheios de atitude.
+                        </p>
+                    </div>
+                    <div class="pt-4 border-t border-gold/10">
+                        <a href="https://instagram.com/mpinto.n12" target="_blank" class="inline-flex items-center gap-2 text-xs font-bold text-lightgold bg-darkred/40 hover:bg-brightred text-white px-4 py-2 rounded-lg transition-colors border border-gold/30">
+                            <i class="fa-brands fa-instagram text-gold group-hover:text-white"></i> @mpinto.n12
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Member 2: Felipe Cordeiro -->
+                <div class="cardblack red-gold-border rounded-2xl p-6 text-center group bg-cardblack custom-shadow flex flex-col justify-between">
+                    <div>
+                        <div class="w-28 h-28 mx-auto mb-6 rounded-full bg-gradient-to-tr from-darkred via-gold to-brightred p-1 shadow-xl">
+                            <div class="w-full h-full bg-black rounded-full flex items-center justify-center overflow-hidden">
+                                <img src="https://placehold.co/200x200/121212/d4af37?text=FC" alt="Felipe Cordeiro" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" onerror="this.src='https://placehold.co/200x200/121212/d4af37?text=NITRO'">
+                            </div>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-1">Felipe Cordeiro</h3>
+                        <p class="text-gold text-sm font-semibold uppercase tracking-wider mb-4">Teclado e Backing Vocal</p>
+                        <p class="text-gray-400 text-sm leading-relaxed mb-6">
+                            Criando as atmosferas sinfônicas, solos marcantes de sintetizador e harmonias vocais impecáveis.
+                        </p>
+                    </div>
+                    <div class="pt-4 border-t border-gold/10">
+                        <span class="inline-flex items-center gap-2 text-xs font-bold text-gray-400 bg-black/40 px-4 py-2 rounded-lg border border-white/10">
+                            <i class="fa-solid fa-music text-gold"></i> Tecladista Nitro
+                        </span>
+                    </div>
+                </div>
+
+                <!-- Member 3: Wiliam Dolata -->
+                <div class="cardblack red-gold-border rounded-2xl p-6 text-center group bg-cardblack custom-shadow flex flex-col justify-between">
+                    <div>
+                        <div class="w-28 h-28 mx-auto mb-6 rounded-full bg-gradient-to-tr from-darkred via-gold to-brightred p-1 shadow-xl">
+                            <div class="w-full h-full bg-black rounded-full flex items-center justify-center overflow-hidden">
+                                <img src="https://placehold.co/200x200/121212/d4af37?text=WD" alt="Wiliam Dolata" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" onerror="this.src='https://placehold.co/200x200/121212/d4af37?text=NITRO'">
+                            </div>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-1">Wiliam Dolata</h3>
+                        <p class="text-gold text-sm font-semibold uppercase tracking-wider mb-4">Bateria</p>
+                        <p class="text-gray-400 text-sm leading-relaxed mb-6">
+                            A força motriz da banda. Batidas pesadas, viradas precisas e muita energia impulsionando cada compasso.
+                        </p>
+                    </div>
+                    <div class="pt-4 border-t border-gold/10">
+                        <a href="https://instagram.com/dolatawiliamemanuel" target="_blank" class="inline-flex items-center gap-2 text-xs font-bold text-lightgold bg-darkred/40 hover:bg-brightred text-white px-4 py-2 rounded-lg transition-colors border border-gold/30">
+                            <i class="fa-brands fa-instagram text-gold group-hover:text-white"></i> @dolatawiliamemanuel
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Member 4: Pedro Afonso -->
+                <div class="cardblack red-gold-border rounded-2xl p-6 text-center group bg-cardblack custom-shadow flex flex-col justify-between">
+                    <div>
+                        <div class="w-28 h-28 mx-auto mb-6 rounded-full bg-gradient-to-tr from-darkred via-gold to-brightred p-1 shadow-xl">
+                            <div class="w-full h-full bg-black rounded-full flex items-center justify-center overflow-hidden">
+                                <img src="https://placehold.co/200x200/121212/d4af37?text=PA" alt="Pedro Afonso" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" onerror="this.src='https://placehold.co/200x200/121212/d4af37?text=NITRO'">
+                            </div>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-1">Pedro Afonso</h3>
+                        <p class="text-gold text-sm font-semibold uppercase tracking-wider mb-4">Baixo</p>
+                        <p class="text-gray-400 text-sm leading-relaxed mb-6">
+                            Grooves profundos e linhas de baixo encorpadas que sustentam o peso e o balanço característicos do som da Nitro.
+                        </p>
+                    </div>
+                    <div class="pt-4 border-t border-gold/10">
+                        <a href="https://instagram.com/pedromahnke_" target="_blank" class="inline-flex items-center gap-2 text-xs font-bold text-lightgold bg-darkred/40 hover:bg-brightred text-white px-4 py-2 rounded-lg transition-colors border border-gold/30">
+                            <i class="fa-brands fa-instagram text-gold group-hover:text-white"></i> @pedromahnke_
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Inspirations Section -->
+    <section id="inspiracoes" class="py-24 bg-rockblack relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <span class="text-gold uppercase tracking-widest text-sm font-bold block mb-2">Raízes & Influências</span>
+                <h2 class="text-4xl sm:text-5xl font-black font-rock uppercase text-white">NOSSAS INSPIRAÇÕES</h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-darkred via-gold to-brightred mx-auto mt-4 rounded-full"></div>
+                <p class="text-gray-400 mt-4 max-w-xl mx-auto text-sm">
+                    As grandes lendas do rock nacional e internacional que moldam a nossa identidade sonora.
+                </p>
+            </div>
+
+            <!-- Grid of Inspirations (7 items) -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Van Halen -->
+                <div class="bg-cardblack red-gold-border rounded-xl p-6 text-center hover:scale-105 transition-transform duration-300">
+                    <div class="text-brightred text-3xl mb-3"><i class="fa-solid fa-guitar"></i></div>
+                    <h3 class="text-xl font-bold text-white font-rock">Van Halen</h3>
+                    <p class="text-xs text-gold mt-1">Virtuosismo e Energia</p>
+                </div>
+
+                <!-- Skank -->
+                <div class="bg-cardblack red-gold-border rounded-xl p-6 text-center hover:scale-105 transition-transform duration-300">
+                    <div class="text-gold text-3xl mb-3"><i class="fa-solid fa-music"></i></div>
+                    <h3 class="text-xl font-bold text-white font-rock">Skank</h3>
+                    <p class="text-xs text-gold mt-1">Groove & Pop Rock</p>
+                </div>
+
+                <!-- Guns 'n Roses -->
+                <div class="bg-cardblack red-gold-border rounded-xl p-6 text-center hover:scale-105 transition-transform duration-300">
+                    <div class="text-brightred text-3xl mb-3"><i class="fa-solid fa-skull"></i></div>
+                    <h3 class="text-xl font-bold text-white font-rock">Guns 'n Roses</h3>
+                    <p class="text-xs text-gold mt-1">Atitude & Hard Rock</p>
+                </div>
+
+                <!-- Mr. Big -->
+                <div class="bg-cardblack red-gold-border rounded-xl p-6 text-center hover:scale-105 transition-transform duration-300">
+                    <div class="text-gold text-3xl mb-3"><i class="fa-solid fa-compact-disc"></i></div>
+                    <h3 class="text-xl font-bold text-white font-rock">Mr. Big</h3>
+                    <p class="text-xs text-gold mt-1">Melodia & Técnica</p>
+                </div>
+
+                <!-- Engenheiros Do Hawaii -->
+                <div class="bg-cardblack red-gold-border rounded-xl p-6 text-center hover:scale-105 transition-transform duration-300">
+                    <div class="text-brightred text-3xl mb-3"><i class="fa-solid fa-book-open"></i></div>
+                    <h3 class="text-xl font-bold text-white font-rock">Engenheiros Do Hawaii</h3>
+                    <p class="text-xs text-gold mt-1">Poesia & Rock Nacional</p>
+                </div>
+
+                <!-- Avenged Sevenfold -->
+                <div class="bg-cardblack red-gold-border rounded-xl p-6 text-center hover:scale-105 transition-transform duration-300">
+                    <div class="text-gold text-3xl mb-3"><i class="fa-solid fa-dragon"></i></div>
+                    <h3 class="text-xl font-bold text-white font-rock">Avenged Sevenfold</h3>
+                    <p class="text-xs text-gold mt-1">Modern Metal & Riffs</p>
+                </div>
+
+                <!-- Dire Straits -->
+                <div class="bg-cardblack red-gold-border rounded-xl p-6 text-center hover:scale-105 transition-transform duration-300 sm:col-span-2 lg:col-span-1">
+                    <div class="text-brightred text-3xl mb-3"><i class="fa-solid fa-radio"></i></div>
+                    <h3 class="text-xl font-bold text-white font-rock">Dire Straits</h3>
+                    <p class="text-xs text-gold mt-1">Timbre & Sofisticação</p>
+                </div>
+
+                <!-- Extra thematic card -->
+                <div class="bg-gradient-to-br from-darkred/40 to-cardblack red-gold-border rounded-xl p-6 text-center flex flex-col items-center justify-center">
+                    <div class="text-gold text-2xl mb-2"><i class="fa-solid fa-bolt"></i></div>
+                    <span class="text-sm font-bold text-white font-rock uppercase tracking-wider">A Mistura Perfeita</span>
+                    <span class="text-xs text-gold mt-1">O som único da Nitro</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Social & Contact Section -->
+    <section id="contato" class="py-24 bg-[#0d0d0d] border-t border-gold/10 relative">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <span class="text-gold uppercase tracking-widest text-sm font-bold block mb-2">Conecte-se Conosco</span>
+            <h2 class="text-4xl sm:text-5xl font-black font-rock uppercase text-white mb-6">REDES SOCIAIS & CONTATO</h2>
+            <div class="w-24 h-1 bg-gradient-to-r from-darkred via-gold to-brightred mx-auto mb-8 rounded-full"></div>
+            <p class="text-gray-300 max-w-xl mx-auto mb-12 text-sm sm:text-base leading-relaxed">
+                Siga os perfis oficiais dos integrantes no Instagram para acompanhar os bastidores, ensaios, datas de shows e novidades da banda Nitro!
+            </p>
+
+            <!-- Instagram Grid Links -->
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-16">
+                <!-- Arthur -->
+                <a href="https://instagram.com/mpinto.n12" target="_blank" class="bg-cardblack red-gold-border p-6 rounded-2xl flex flex-col items-center group hover:bg-darkred/20 transition-all">
+                    <div class="w-16 h-16 rounded-full bg-gradient-to-tr from-yellow-500 via-red-500 to-purple-600 flex items-center justify-center text-white text-2xl mb-4 shadow-lg group-hover:scale-110 transition-transform">
+                        <i class="fa-brands fa-instagram"></i>
+                    </div>
+                    <span class="font-bold text-white text-lg">Arthur Pinto</span>
+                    <span class="text-gold text-sm mt-1">@mpinto.n12</span>
+                    <span class="mt-4 text-xs font-semibold uppercase text-gray-400 group-hover:text-white flex items-center gap-1">
+                        Seguir no Instagram <i class="fa-solid fa-arrow-right"></i>
+                    </span>
+                </a>
+
+                <!-- Pedro -->
+                <a href="https://instagram.com/pedromahnke_" target="_blank" class="bg-cardblack red-gold-border p-6 rounded-2xl flex flex-col items-center group hover:bg-darkred/20 transition-all">
+                    <div class="w-16 h-16 rounded-full bg-gradient-to-tr from-yellow-500 via-red-500 to-purple-600 flex items-center justify-center text-white text-2xl mb-4 shadow-lg group-hover:scale-110 transition-transform">
+                        <i class="fa-brands fa-instagram"></i>
+                    </div>
+                    <span class="font-bold text-white text-lg">Pedro Afonso</span>
+                    <span class="text-gold text-sm mt-1">@pedromahnke_</span>
+                    <span class="mt-4 text-xs font-semibold uppercase text-gray-400 group-hover:text-white flex items-center gap-1">
+                        Seguir no Instagram <i class="fa-solid fa-arrow-right"></i>
+                    </span>
+                </a>
+
+                <!-- Wiliam -->
+                <a href="https://instagram.com/dolatawiliamemanuel" target="_blank" class="bg-cardblack red-gold-border p-6 rounded-2xl flex flex-col items-center group hover:bg-darkred/20 transition-all">
+                    <div class="w-16 h-16 rounded-full bg-gradient-to-tr from-yellow-500 via-red-500 to-purple-600 flex items-center justify-center text-white text-2xl mb-4 shadow-lg group-hover:scale-110 transition-transform">
+                        <i class="fa-brands fa-instagram"></i>
+                    </div>
+                    <span class="font-bold text-white text-lg">Wiliam Dolata</span>
+                    <span class="text-gold text-sm mt-1">@dolatawiliamemanuel</span>
+                    <span class="mt-4 text-xs font-semibold uppercase text-gray-400 group-hover:text-white flex items-center gap-1">
+                        Seguir no Instagram <i class="fa-solid fa-arrow-right"></i>
+                    </span>
+                </a>
+            </div>
+
+            <!-- Quick Booking / Message Form -->
+            <div class="bg-cardblack red-gold-border p-8 rounded-3xl max-w-2xl mx-auto custom-shadow">
+                <h3 class="text-2xl font-bold font-rock text-white mb-2">Fale com a Banda</h3>
+                <p class="text-gray-400 text-sm mb-6">Quer contratar a Nitro para seu evento ou festival? Mande uma mensagem!</p>
+                <form id="contact-form" onsubmit="handleFormSubmit(event)" class="space-y-4 text-left">
+                    <div>
+                        <label class="block text-xs font-bold text-gold uppercase mb-1">Seu Nome</label>
+                        <input type="text" id="name" required class="w-full bg-black/60 border border-gold/30 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-brightred transition-colors" placeholder="Nome / Produtor">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-gold uppercase mb-1">E-mail ou Telefone</label>
+                        <input type="text" id="contact" required class="w-full bg-black/60 border border-gold/30 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-brightred transition-colors" placeholder="seu@email.com ou (00) 90000-0000">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-gold uppercase mb-1">Mensagem</label>
+                        <textarea id="msg" rows="4" required class="w-full bg-black/60 border border-gold/30 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-brightred transition-colors" placeholder="Detalhes do show ou contato..."></textarea>
+                    </div>
+                    <button type="submit" class="w-full py-4 bg-gradient-to-r from-darkred to-brightred text-white font-bold rounded-xl shadow-lg hover:brightness-110 transition-all uppercase tracking-wider text-sm border border-red-500/40">
+                        Enviar Mensagem <i class="fa-solid fa-paper-plane ml-2"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black py-10 border-t border-gold/20 text-center text-gray-500 text-xs">
+        <div class="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div class="flex items-center gap-2">
+                <span class="font-rock font-black text-gold text-lg tracking-wider">NITRO</span>
+                <span class="text-gray-600">| Todos os direitos reservados © 2026</span>
+            </div>
+            <div class="flex items-center gap-6">
+                <a href="https://instagram.com/mpinto.n12" target="_blank" class="hover:text-gold transition-colors"><i class="fa-brands fa-instagram text-lg"></i></a>
+                <a href="https://instagram.com/pedromahnke_" target="_blank" class="hover:text-gold transition-colors"><i class="fa-brands fa-instagram text-lg"></i></a>
+                <a href="https://instagram.com/dolatawiliamemanuel" target="_blank" class="hover:text-gold transition-colors"><i class="fa-brands fa-instagram text-lg"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript for Mobile Menu and Toast Notification -->
+    <script>
+        // Mobile Menu Toggle
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Custom Toast Function (replaces alert)
+        function showToast(message) {
+            const toast = document.getElementById('toast');
+            const toastMessage = document.getElementById('toast-message');
+            toastMessage.textContent = message;
+            
+            toast.classList.remove('translate-y-32', 'opacity-0');
+            toast.classList.add('translate-y-0', 'opacity-100');
+
+            setTimeout(() => {
+                toast.classList.remove('translate-y-0', 'opacity-100');
+                toast.classList.add('translate-y-32', 'opacity-0');
+            }, 4000);
+        }
+
+        // Handle Form Submit
+        function handleFormSubmit(event) {
+            event.preventDefault();
+            const name = document.getElementById('name').value;
+            showToast(`Obrigado, ${name}! Sua mensagem foi enviada à banda Nitro.`);
+            document.getElementById('contact-form').reset();
+        }
+    </script>
+</body>
+</html>
